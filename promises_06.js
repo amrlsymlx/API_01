@@ -31,8 +31,7 @@ function getPosts(){
         setTimeout(function(){
             let output = '';
             posts.forEach(function(post){
-                output += `
-                <li>${post.title}</li>`
+                output += `<li>${post.title}</li>`
             });
             document.body.innerHTML=output;
         },1000);
