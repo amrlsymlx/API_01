@@ -1,27 +1,70 @@
 // json stands for javascript object notation
-// structured format for respresenting data, so a;;
+//structured  format for representing data , so  all
 // the computers can understand it
-// is way of communicating data
-// is using key value pairs
-// json can work with other language as well 
+// json is a way of communacting data
+// json is using key value pairs
+// json can work with other languages as well
 
-document.getElementById('btn1').addEventListener('click',loadUser) ;
+document.getElementById('btn1').addEventListener('click',loadUser);
+document.getElementById('btn2').addEventListener('click',loadUsers);
 
 function loadUser(){
-    // create xhr object
+    //create xhr  object 
     const xhr = new XMLHttpRequest();
 
-    // open method
+    //open method
     xhr.open('Get','user_03.json',true);
 
     //onload
-    xhr.onload = function (){
-        if(this.status === 200 ) {
-            
+    xhr.onload = function(){
+        if(this.status === 200 ){
+            // console.log(this.responseText);
+            // convert the json obj to js object
+            const user = JSON.parse(this.responseText);
+            // console.log(user);
+
+            const output = `
+            <ul>
+            <li>Id: ${user.id}</li>
+            <li>Name: ${user.name}</li>
+            <li>Age: ${user.age}</li>
+            </ul>`;
+
+            document.getElementById('user').innerHTML=output;
         }
     }
+    xhr.send();
+}
 
 
+function loadUsers(){
+    //create xhr  object 
+    const xhr = new XMLHttpRequest();
 
+    //open method
+    xhr.open('Get','users_03.json',true);
 
+    //onload
+    xhr.onload = function(){
+        if(this.status === 200){
+            // console.log(this.responseText);
+            //converting to js object
+            const users = JSON.parse(this.responseText);
+            // console.log(users);
+
+            let output= '';
+            //we use forEch to loop through an array
+            users.forEach(function(user){
+                output += `
+                <ul>
+            <li>Id: ${user.id}</li>
+            <li>Name: ${user.name}</li>
+            <li>Age: ${user.age}</li>
+            </ul>`;
+                
+            });
+            document.getElementById('users').innerHTML=output;
+        }
+    }   
+    xhr.send();
 }
