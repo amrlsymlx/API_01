@@ -13,7 +13,7 @@ function loadUser(){
     const xhr = new XMLHttpRequest();
 
     //open method
-    xhr.open('Get','user_03.json',true);
+    xhr.open('Get','03_user.json',true);
 
     //onload
     xhr.onload = function(){
@@ -42,7 +42,7 @@ function loadUsers(){
     const xhr = new XMLHttpRequest();
 
     //open method
-    xhr.open('Get','users_03.json',true);
+    xhr.open('Get','03_users.json',true);
 
     //onload
     xhr.onload = function(){

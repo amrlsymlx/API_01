@@ -5,7 +5,7 @@ document.getElementById('btn3').addEventListener('click',getExternal);
 
 //Get local text file
 function getText(){
-    fetch('data_07.txt')
+    fetch('07_data.txt')
     .then(function(res){
         return res.text();
     })
@@ -20,7 +20,7 @@ function getText(){
 
 //Get local json
 function getJson(){
-    fetch('posts_07.json')
+    fetch('07_posts.json')
     .then(function(res){
         return res.json();
     })

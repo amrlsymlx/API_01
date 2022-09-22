@@ -6,7 +6,7 @@ function loadData(){
     const xhr = new XMLHttpRequest();
 
     //open method (type of the request , url (where to get the data from),asyn(true))
-    xhr.open('Get','data_02.txt',true);
+    xhr.open('Get','02_data.txt',true);
 
     //load response
     xhr.onload = function (){
