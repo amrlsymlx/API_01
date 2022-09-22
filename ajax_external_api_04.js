@@ -1,14 +1,15 @@
-document.getElementById('btn').addEventListener('click', getJokes);
+document.getElementById('btn').addEventListener('click',getJokes);
 
 function getJokes(){
-    
-    // get access to the value of input field
-    const number = document.querySelector('input[type = "number"]').value;
 
-    // Create XHR object
+    //get access to the value of input field 
+    const number = document.querySelector('input[type="number"]').value;
+
+    //create xhr object
     const xhr = new XMLHttpRequest();
 
-    xhr.open('Get',`http://api.icndb.com/jokes/random/${number}`,true)
+    xhr.open('Get',`http://api.icndb.com/jokes/random/${number}`,true);
+
 
     xhr.onload = function(){
         if(this.status === 200){
@@ -17,16 +18,19 @@ function getJokes(){
             // console.log(response);
 
             let output = '';
-            if(response.type === 'success'){
+
+            if(response.type  === 'success'){
                 response.value.forEach(function(item){
-                    output += `<li> ${item.joke}</li>`
+                    output += `<li>${item.joke}</li>`
+
                 })
             }else {
                 output += `<li>Something went wrong</li>`
             }
 
-            document.getElementById('output').innerHTML = output;
+            document.getElementById('output').innerHTML=output;
         }
+
     }
 
     xhr.send();
